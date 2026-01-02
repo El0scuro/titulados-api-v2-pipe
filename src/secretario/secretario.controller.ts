@@ -17,10 +17,11 @@ export class SecretarioController {
     return this.secretarioService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.secretarioService.findOne(+id);
-  }
+  @Get(':correo')
+findOne(@Param('correo') correo: string) {
+  return this.secretarioService.findOne(correo);
+}
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSecretarioDto: UpdateSecretarioDto) {

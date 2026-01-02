@@ -18,10 +18,11 @@ export class EstudianteController {
     return this.estudianteService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.estudianteService.findOne(+id);
-  }
+  @Get(':correo')
+  findOne(@Param('correo') correo: string) {
+  return this.estudianteService.findOne(correo);
+}
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateEstudianteDto: UpdateEstudianteDto) {

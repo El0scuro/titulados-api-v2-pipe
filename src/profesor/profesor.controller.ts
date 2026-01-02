@@ -17,10 +17,11 @@ export class ProfesorController {
     return this.profesorService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.profesorService.findOne(+id);
-  }
+  @Get(':correo')
+  findOne(@Param('correo') correo: string) {
+  return this.profesorService.findOne(correo);
+}
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateProfesorDto: UpdateProfesorDto) {

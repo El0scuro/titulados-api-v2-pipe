@@ -2,7 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { ProfesorService } from './profesor.service';
 import { ProfesorController } from './profesor.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Profesor } from './entities/Profesor.entity';
+import { Profesor } from './entities/profesor.entity';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({

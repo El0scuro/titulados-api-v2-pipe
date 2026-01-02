@@ -17,10 +17,11 @@ export class JefaturaController {
     return this.jefaturaService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.jefaturaService.findOne(+id);
-  }
+  @Get(':correo')
+findOne(@Param('correo') correo: string) {
+  return this.jefaturaService.findOne(correo);
+}
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateJefaturaDto: UpdateJefaturaDto) {

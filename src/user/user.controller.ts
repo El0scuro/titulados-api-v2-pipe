@@ -18,11 +18,12 @@ export class UserController {
     @UseGuards(AuthGuard('jwt'))
     @Get('validate')
     async validateUser(@User() user, @Res() res) {
+        console.log(user.email)
         const estudiante = await this.estudianteService.findOne(user.email);
         const profesor = await this.profesorService.findOne(user.email);
         const secretario = await this.secretarioService.findOne(user.email);
         const jefatura = await this.jefaturaService.findOne(user.email);
-
+        
         if (!estudiante && !profesor && !secretario && !jefatura) {
             return res.status(404).json({ message: 'Inexistente' });
         }

@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import {Jefatura} from "./entities/jefatura.entity"
 import { CreateJefaturaDto } from './dto/create-jefatura.dto';
 import { UpdateJefaturaDto } from './dto/update-jefatura.dto';
 
 @Injectable()
 export class JefaturaService {
-  create(createJefaturaDto: CreateJefaturaDto) {
+  constructor(@InjectRepository(Jefatura) private readonly jefaturaRepo: Repository<Jefatura>) {}
+  create(createEstudianteDto: CreateJefaturaDto) {
     return 'This action adds a new jefatura';
   }
 
@@ -12,8 +16,10 @@ export class JefaturaService {
     return `This action returns all jefatura`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} jefatura`;
+  async findOne(correo: string) {
+    const jefatura = await this.jefaturaRepo.findOneBy({mail: correo});
+    console.log(jefatura, "+", jefatura.mail)
+    return jefatura;
   }
 
   update(id: number, updateJefaturaDto: UpdateJefaturaDto) {
