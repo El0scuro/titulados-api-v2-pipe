@@ -16,9 +16,13 @@ export class JefaturaService {
     return `This action returns all jefatura`;
   }
 
-  async findOne(correo: string) {
-    const jefatura = await this.jefaturaRepo.findOneBy({mail: correo});
-    console.log(jefatura, "+", jefatura.mail)
+  async findOne(id: string) {
+    const jefatura = await this.jefaturaRepo.findOneBy({mail: id});
+    if (!jefatura) {
+    // Retorna null si no existe
+    return null;
+  }
+    
     return jefatura;
   }
 

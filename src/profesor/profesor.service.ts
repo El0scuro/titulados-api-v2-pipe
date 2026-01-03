@@ -16,9 +16,8 @@ export class ProfesorService {
     return `This action returns all profesor`;
   }
 
-  async findOne(correo: string) {
-    const profesor = await this.profesorRepo.findOneBy({mail: correo});
-    console.log(profesor, "+", profesor.mail)
+  async findOne(id: string) {
+    const profesor = await this.profesorRepo.findOneBy({mail: id});
     return profesor;
   }
 

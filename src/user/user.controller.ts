@@ -5,7 +5,7 @@ import { EstudianteService } from 'src/estudiante/estudiante.service';
 import { JefaturaService } from 'src/jefatura/jefatura.service';
 import { ProfesorService } from 'src/profesor/profesor.service';
 import { SecretarioService } from 'src/secretario/secretario.service';
-
+console.log("hihiiiiiii")
 @Controller('user')
 export class UserController {
     constructor(
@@ -18,9 +18,10 @@ export class UserController {
     @UseGuards(AuthGuard('jwt'))
     @Get('validate')
     async validateUser(@User() user, @Res() res) {
-        console.log(user.email)
+        console.log("usuario", user)
         const estudiante = await this.estudianteService.findOne(user.email);
         const profesor = await this.profesorService.findOne(user.email);
+        console.log(profesor, "hihhiiiiiiiiiiiiiiiiiiii");
         const secretario = await this.secretarioService.findOne(user.email);
         const jefatura = await this.jefaturaService.findOne(user.email);
         

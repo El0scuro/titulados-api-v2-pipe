@@ -18,9 +18,9 @@ export class EstudianteController {
     return this.estudianteService.findAll();
   }
 
-  @Get(':correo')
-  findOne(@Param('correo') correo: string) {
-  return this.estudianteService.findOne(correo);
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+  return this.estudianteService.findOne(id);
 }
 
 

@@ -16,9 +16,12 @@ export class EstudianteService {
     return `This action returns all estudiante`;
   }
 
-  async findOne(correo: string) {
-    const estudiante = await this.estudianteRepo.findOneBy({mail: correo});
-    console.log(estudiante, "+", estudiante.mail)
+  async findOne(id: string) {
+    const estudiante = await this.estudianteRepo.findOneBy({mail: id});
+    if (!estudiante) {
+    // Retorna null si no existe
+    return null;
+  }
     return estudiante;
   }
 

@@ -17,9 +17,9 @@ export class JefaturaController {
     return this.jefaturaService.findAll();
   }
 
-  @Get(':correo')
-findOne(@Param('correo') correo: string) {
-  return this.jefaturaService.findOne(correo);
+  @Get(':id')
+findOne(@Param('id') id: string) {
+  return this.jefaturaService.findOne(id);
 }
 
 

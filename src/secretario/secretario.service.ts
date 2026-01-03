@@ -16,9 +16,12 @@ export class SecretarioService {
     return `This action returns all estudiante`;
   }
 
-  async findOne(correo: string) {
-    const secretario = await this.secretarioRepo.findOneBy({mail: correo});
-    console.log(secretario, "+", secretario.mail)
+  async findOne(id: string) {
+    const secretario = await this.secretarioRepo.findOneBy({mail: id});
+    if (!secretario) {
+    // Retorna null si no existe
+    return null;
+  }
     return secretario;
   }
   update(id: number, updateSecretarioDto: UpdateSecretarioDto) {

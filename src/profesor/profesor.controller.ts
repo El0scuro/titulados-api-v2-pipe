@@ -17,9 +17,9 @@ export class ProfesorController {
     return this.profesorService.findAll();
   }
 
-  @Get(':correo')
-  findOne(@Param('correo') correo: string) {
-  return this.profesorService.findOne(correo);
+  @Get(':id')
+findOne(@Param('id') id: string) {
+  return this.profesorService.findOne(id); // ahora id sigue siendo string
 }
 
 
